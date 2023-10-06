@@ -1,0 +1,260 @@
+.chat-section {
+    width: 25%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    flex-grow: 1;
+}
+
+.chat-close {
+    top: 12px;
+}
+
+.chat-content-section {
+    height: 75%;
+    overflow: auto;
+}
+
+.chat-footer {
+    height: 25%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-footer-banner {
+    background-color: rgb(236, 240, 241);
+    font-size: 0.6rem;
+    color: black;
+    padding: 5px;
+}
+
+.chat-bubble {
+    max-width: 100%;
+}
+
+.chat-me {
+    border-radius: 5px;
+    padding: 8px 8px;
+    font-size: 13px;
+}
+
+.chat-container {
+    max-width: 220px;
+    word-wrap: break-word;
+}
+
+.chat-area {
+    height: 100px;
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: transparent;
+    color: black;
+}
+
+.to-btn {
+    cursor: pointer;
+    background-color: #3656ff;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    transition: 0.1s;
+}
+
+.to-btn:hover {
+    background-color: #2747fa;
+}
+
+.to-btn:active {
+    scale: 0.95;
+    transition: 0.2s;
+}
+
+/*webkit styles*/
+.chat-section::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+}
+
+.chat-section::-webkit-scrollbar-track {
+    background: #fff2e4;
+}
+
+.chat-section::-webkit-scrollbar-thumb {
+    background: #06a0d7;
+    border-radius: 30px;
+}
+
+.chat-section::-webkit-scrollbar-thumb:hover {
+    background: #0587b4;
+}
+
+.chat-section {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.drop-down-participants {
+    position: relative;
+    width: 100px;
+    height: 70px;
+    background-color: crimson;
+}
+
+.test {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: -150px;
+    left: 25px;
+    height: 150px;
+}
+
+.chat-popover {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: -150px;
+    left: -6rem;
+    height: 150px;
+}
+
+.drop-inner-sect {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 3px 3px 5px #a6a6a6;
+    border-radius: 6px;
+}
+
+.chat-inner-item {
+    transition: 0.1s;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.chat-inner-item:hover {
+    transition: 0.15s;
+    background-color: #f3f3f3;
+    color: #212121;
+}
+
+.drop-inner-item {
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.drop-inner-item:hover {
+    transition: 0.15s;
+    background-color: #1e90ff;
+    color: white;
+}
+
+.chat-drop-btn {
+    background-color: #06a6dc;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 10px;
+}
+
+.chat-drop-btn:hover {
+    background-color: #059acc;
+}
+
+/*drop down scroller styles*/
+.drop-inner-sect::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+}
+
+.drop-inner-sect::-webkit-scrollbar-track {
+    background: #fff2e4;
+}
+
+.drop-inner-sect::-webkit-scrollbar-thumb {
+    background: #06a0d7;
+    border-radius: 30px;
+}
+
+.drop-inner-sect::-webkit-scrollbar-thumb:hover {
+    background: #0587b4;
+}
+
+.custom-cherv-down {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    left: 8px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.custom-chat-closer {
+    color: #2f2f2f;
+    position: absolute;
+    top: 25px;
+    left: 12px;
+    width: 100px;
+    box-shadow: 1px 3px 5px #c7c7c7;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 5;
+    background-color: white;
+}
+
+.close-item {
+    transition: 0.1s;
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 12px;
+}
+
+.close-item:hover {
+    transition: 0.15s;
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.emoji-palette {
+    position: absolute;
+    right: -0.2rem;
+    bottom: 5rem;
+}
+
+.send-btn {
+    background-color: #5d3eff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 11px;
+}
+
+.send-btn:hover {
+    background-color: #401ffa;
+}
+

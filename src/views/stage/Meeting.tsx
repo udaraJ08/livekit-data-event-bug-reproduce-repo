@@ -25,8 +25,9 @@ const Meeting = () => {
             const currentDate = new Date();
             const unixTimestamp = Math.floor(currentDate.getTime() / 1000);
             console.log('Unix Timestamp:', unixTimestamp);
+            console.trace();
 
-            console.log('reached: RoomEvent.DataReceived')
+            console.log('reached: RoomEvent.DataReceWived')
             console.log('kind: ', kind)
             console.log('payload: ', payload)
             console.log('strData: ', strData)

@@ -1,20 +1,18 @@
 import '../../assets/css/controlBar.css'
 import ChatIco from "../../assets/SVG/ChatIco";
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {globalActions} from "../Chat/redux/global.slice";
-import {GlobalReducerSelectorType} from "../Chat/redux/types";
 
 const size = 1.3
 
-const ControlBar = () => {
+export interface IProps {
+    setChatOpen: (e: boolean) => void;
+    chatOpen: boolean;
+}
 
-    const {chatOpen} = useSelector((state: GlobalReducerSelectorType) => state.globalReducer)
-
-    const dispatch = useDispatch();
+const ControlBar = ({setChatOpen, chatOpen}: IProps) => {
 
     const handleChatOpen = () => {
-        dispatch(globalActions.chatSectionViewHandle(!chatOpen))
+        setChatOpen(!chatOpen)
     }
 
     return <div className='controlBar bg-brand-black d-flex'>

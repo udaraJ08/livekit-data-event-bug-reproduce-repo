@@ -1,16 +1,15 @@
-import {useEnsureRoom, useSpeakingParticipants, useTracks} from "@livekit/components-react";
-import {Track, RoomEvent, DataPacket_Kind} from "livekit-client";
+import {GridLayout, TrackContext, useEnsureRoom, useTracks} from "@livekit/components-react";
+import {RoomEvent, Track} from "livekit-client";
 import TopBar from "../../components/TopBar/TopBar";
 import ControlBar from "../../components/ControlBar/ControlBar";
 import ChatView from "../../components/Chat/ChatView";
-import {useSelector} from "react-redux";
-import {GlobalReducerSelectorType} from "../../components/Chat/redux/types";
-import {useEffect} from "react";
-import Stage from "./Stage";
+import React, {useEffect, useState} from "react";
+import ParticipantTileComp from "../../components/helper-components/ParticipantTileComp";
 
 const Meeting = () => {
 
-    const {chatOpen} = useSelector((state: GlobalReducerSelectorType) => state.globalReducer)
+    const [chatOpen, setChatOpen] = useState(false);
+    const cameraTracks = useTracks([{ source: Track.Source.Camera, withPlaceholder: true }]);
 
     const room = useEnsureRoom()
 
@@ -44,9 +43,17 @@ const Meeting = () => {
 
     return <div className='h-100'>
         <TopBar />
-        {chatOpen && <ChatView />}
-        <Stage />
-        <ControlBar />
+        {chatOpen && <ChatView setChatOpen={setChatOpen} chatOpen={chatOpen}/>}
+        <div className='lk-grid-layout'>
+            <GridLayout tracks={cameraTracks} className='h-100'>
+                <TrackContext.Consumer>
+                    {(track: any) => {
+                        return track && <ParticipantTileComp track={track} />
+                    }}
+                </TrackContext.Consumer>
+            </GridLayout>
+        </div>
+        <ControlBar chatOpen={chatOpen} setChatOpen={setChatOpen}/>
     </div>
 }
 

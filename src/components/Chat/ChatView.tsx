@@ -2,25 +2,20 @@ import '../../assets/css/chat.css'
 import {faChevronDown, faClose, faUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {globalActions} from "./redux/global.slice";
 import {ENTER, EVERYONE} from "./helpers/types";
 import {STREAM_CHAT} from "../../helpers/constants";
-import {useDataChannel, useEnsureRoom, useChat} from "@livekit/components-react";
+import {useEnsureRoom} from "@livekit/components-react";
 import {DataPacket_Kind} from "livekit-client";
+import {IProps} from "../ControlBar/ControlBar";
 
-const ChatView = () => {
-
-    const {send, message} = useDataChannel('chat')
+const ChatView = ({setChatOpen, chatOpen}: IProps) => {
 
     const [messageSend, setMessageSend] = useState('')
 
     const vidRoom = useEnsureRoom()
 
-    const dispatch = useDispatch()
-
     const handleChatClose = () => {
-        dispatch(globalActions.chatSectionViewHandle(false))
+        setChatOpen(!chatOpen)
     }
 
     const composeMessage = (event: any) => {
@@ -46,11 +41,8 @@ const ChatView = () => {
         const data = encoder.encode(strData);
 
         try {
-            send(data, {
-                kind: DataPacket_Kind.RELIABLE
-            })
-            // vidRoom?.localParticipant
-            //     .publishData(data, DataPacket_Kind.RELIABLE)
+            vidRoom?.localParticipant
+                .publishData(data, DataPacket_Kind.LOSSY)
         } catch (err: any) {
             console.error(err.message)
         }

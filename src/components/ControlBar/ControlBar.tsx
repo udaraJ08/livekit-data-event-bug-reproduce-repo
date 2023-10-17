@@ -1,8 +1,6 @@
 import '../../assets/css/controlBar.css'
 import ChatIco from "../../assets/SVG/ChatIco";
 import React from "react";
-import CameraComp from "../helper-components/CameraComp";
-import MicComp from "../helper-components/MicComp";
 import {useDispatch, useSelector} from "react-redux";
 import {globalActions} from "../Chat/redux/global.slice";
 import {GlobalReducerSelectorType} from "../Chat/redux/types";
@@ -20,10 +18,6 @@ const ControlBar = () => {
     }
 
     return <div className='controlBar bg-brand-black d-flex'>
-        <div className='flex-1 d-flex align-items-center gap-5 pl-2'>
-            <CameraComp/>
-            <MicComp/>
-        </div>
         <div className='flex-5 d-center gap-4'>
 
             <div

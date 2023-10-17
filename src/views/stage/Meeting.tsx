@@ -27,7 +27,7 @@ const Meeting = () => {
             console.log('Unix Timestamp:', unixTimestamp);
             console.trace();
 
-            console.log('reached: RoomEvent.DataReceWived')
+            console.log('reached: RoomEvent.DataReceived')
             console.log('kind: ', kind)
             console.log('payload: ', payload)
             console.log('strData: ', strData)
